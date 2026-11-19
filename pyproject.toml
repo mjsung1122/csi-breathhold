@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csi-breathhold"
+version = "0.1.0"
+description = "Offline ESP32 CSI wavelet/PCA extraction and time-labelled voluntary breath-hold detection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "scipy>=1.11", "PyWavelets>=1.5", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+ai = ["torch>=2.4"]
+test = ["pytest>=8"]
+
+[project.scripts]
+csi-breathhold = "csi_breathhold.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
